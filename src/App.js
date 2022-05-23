@@ -1,38 +1,23 @@
+import { RoutingPath } from "./Routes/RoutingPath";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="mockBee logo" width="180" height="180" />
-        <h1 className="brand-title">
-          Welcome to <span>mockBee!</span>
-        </h1>
-        <p className="brand-description">
-          Get started by editing <code>src/App.js</code>
-        </p>
-        <div className="links">
-          <a
-            href="https://mockbee.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore mockBee
-          </a>
-          <a
-            href="https://mockbee.netlify.app/docs/api/introduction"
-            target="_blank"
-            rel="noreferrer"
-          >
-            API Documentation
-          </a>
-          <a
-            href="https://github.com/neogcamp/mockBee"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contribute
-          </a>
-        </div>
-      </header>
+    <div className="App h-[100vh] dark:text-white dark:bg-black">
+      <ToastContainer
+        position="top-center"
+        autoClose={1400}
+        hideProgressBar={false}
+        pauseOnHover="false"
+        closeOnClick
+        theme="dark"
+        toastStyle={{ backgroundColor: "rgb(50,50,50)" }}
+      />
+
+      <div className="routes-container min-h-[80vh] dark:bg-black">
+        <RoutingPath />
+      </div>
     </div>
   );
 }
