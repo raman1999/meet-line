@@ -7,7 +7,7 @@ const Authentication = () => {
   const [toggleLogin,setToggleLogin]=useState(true);
   return (
     <div className="h-screen flex md:flex-col ">
-      <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center md:w-full md:h-80">
+      <div className="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 justify-around items-center md:w-full md:h-80">
         <div className="md: p-10">
           <h1 className="text-white font-bold text-4xl font-sans">MeetLine</h1>
           <p className="text-white mt-1">
