@@ -1,9 +1,12 @@
 import { Routes, Route } from "react-router-dom";
+import { UserGrid } from "../Components";
 import {
   Authentication,
   Bookmark,
   Explore,
   Home,
+  NotFound,
+  Notification,
   OtherUserProfile,
   UserProfile,
 } from "../Pages";

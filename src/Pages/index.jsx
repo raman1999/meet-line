@@ -1,7 +1,8 @@
-import Authentication from "./Authentication/auth";
-import Bookmark from "./Bookmark/bookmark";
+import Authentication from "./Authentication/Auth";
+import Bookmark from "./Bookmark/Bookmark";
 import Explore from "./Explore/Explore";
 import Home from "./Home/Home";
+import NotFound from "./NotFound/NotFound";
 import Notification from "./Notification/Notification";
 import { OtherUserProfile } from "./UserProfile/OtherUserProfile";
 import UserProfile from "./UserProfile/UserProfile";
@@ -14,4 +15,5 @@ export {
   Notification,
   UserProfile,
   OtherUserProfile,
+  NotFound,
 };
