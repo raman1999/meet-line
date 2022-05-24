@@ -1,0 +1,9 @@
+.icon {
+  @apply h-5 w-5 text-gray-600;
+}
+.auth-heading {
+  @apply text-xl font-semibold p-2 text-gray-500 hover:text-blue-600 cursor-pointer;
+}
+.active {
+  @apply text-blue-500 border-b-2 border-blue-600;
+}
