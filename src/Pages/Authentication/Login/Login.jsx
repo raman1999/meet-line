@@ -115,7 +115,7 @@ const Login = () => {
         {loading ? <LoadingSpinner> Logging in..</LoadingSpinner> : "Login"}
       </button>
       <span
-        className="btn bg-white text-blue-600 border-2 border-gray-300"
+        className="btn bg-white text-blue-600 border-2 border-gray-300 cursor-pointer"
         onClick={testUserLogin}
       >
         {testLoading ? (
