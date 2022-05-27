@@ -1,8 +1,6 @@
-<<<<<<< Updated upstream
-import {BsPersonFill} from "react-icons/bs";
-import {MdEmail} from "react-icons/md";
-import {AiTwotoneLock} from "react-icons/ai";
-=======
+import { BsPersonFill } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+import { AiTwotoneLock } from "react-icons/ai";
 import { signUp } from "../../../firebase/firebase-auth";
 import { useFormik } from "formik";
 import { useState } from "react";
@@ -13,13 +11,54 @@ import {
   LockIcon,
   PersonIcon,
 } from "../../../Components/Icons/Icons";
->>>>>>> Stashed changes
 
 const Signup = () => {
+  const [loading, setLoading] = useState(false);
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+    },
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        setLoading(true);
+        await signUp(values.name, values.email, values.password);
+        toast.success(toastConstants.signupSuccess);
+        resetForm({ values: "" });
+      } catch (err) {
+        err.code === "auth/email-already-in-use"
+          ? toast.error(toastConstants.signupFailedByEmail)
+          : toast.error(toastConstants.serverError);
+      } finally {
+        setLoading(false);
+      }
+    },
+    validate: (values) => {
+      const regularExpression = new RegExp(
+        "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
+      );
+      let errors = {};
+      if (!values.email) {
+        errors.email = "Valid email is required";
+      } else if (
+        !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.email)
+      ) {
+        errors.email = "Invalid email address";
+      }
+      if (!values.name) {
+        errors.name = "Valid name is required";
+      }
+      if (!values.password) {
+        errors.password = "Valid password is required";
+      } else if (!regularExpression.test(values.password)) {
+        errors.password =
+          "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character";
+      }
+      return errors;
+    },
+  });
   return (
-<<<<<<< Updated upstream
-
-=======
     <form onSubmit={formik.handleSubmit}>
       <div className="input-container mb-4">
         <PersonIcon className="icon" />
@@ -72,6 +111,5 @@ const Signup = () => {
     </form>
   );
 };
->>>>>>> Stashed changes
 
 export default Signup;
